@@ -1,0 +1,17 @@
+{
+	"name": "typescript-typeorm",
+	"version": "1.0.0",
+	"description": "",
+	"main": "src/index.ts",
+	"scripts": {
+		"dev": "nodemon src/index.ts",
+		"run": "nodemon dist/index.js",
+		"build": "tsc --build"
+	},
+	"author": "Alejo Kim Uy",
+	"license": "ISC",
+	"devDependencies": {
+		"nodemon": "^3.0.2",
+		"ts-node": "^10.9.2"
+	}
+}
