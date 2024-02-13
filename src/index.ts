@@ -3,15 +3,18 @@ import { dataSource } from './dataSource';
 
 import { User } from './entity/User';
 
-
-
 async function testQuery() {
 	// Connect to the database
 	let serviceDS = await dataSource;
 
+	console.log(
+		'This is the CURRENT VALUE of NEW_GLOBAL: ',
+		globalThis.NEW_GLOBAL
+	);
+
 	// Interact with database
 	const Users = await serviceDS.manager.find(User);
-	console.log(Users);
+	// console.log(Users);
 }
 
 async function transactionTest() {
@@ -61,6 +64,7 @@ async function queryBuilder() {
 	console.log(rows);
 }
 
+testQuery();
 // transactionTest();
 
 // queryBuilder();

@@ -21,6 +21,8 @@ const connToDS = async () => {
 		await dataSourceConn.initialize();
 		console.log('Data Source has been initialized!');
 
+		globalThis.NEW_GLOBAL = 'THIS HAS COME FROM DATA SOURCE';
+
 		return dataSourceConn;
 	} catch (err) {
 		console.error('Error during Data Source initialization', err);
