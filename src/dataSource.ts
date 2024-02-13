@@ -1,4 +1,5 @@
 import 'reflect-metadata';
+
 import { DataSource } from 'typeorm';
 
 const connToDS = async () => {
@@ -14,14 +15,13 @@ const connToDS = async () => {
 
 		entities: [`${__dirname}/entity/*.{j,t}s`],
 		migrations: [`${__dirname}/migrations/*.{j,t}s`],
+		migrationsTableName: 'migrations',
 		synchronize: true,
 		logging: false,
 	});
 	try {
 		await dataSourceConn.initialize();
 		console.log('Data Source has been initialized!');
-
-		globalThis.NEW_GLOBAL = 'THIS HAS COME FROM DATA SOURCE';
 
 		return dataSourceConn;
 	} catch (err) {

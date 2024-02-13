@@ -7,6 +7,9 @@
 		"dev": "concurrently -n \"NODEMON,BUILDER\" -c \"yellow,blue\" -p \"[{name}]\" \"npm run dev-nodemon\" \"npm run dev-build\"",
 		"dev-nodemon": "nodemon dist/index.js",
 		"dev-build": "tsc --watch",
+		"migration": "cd src/migrations && npx typeorm migration:create",
+		"migration-up": "cd dist && npx typeorm migration:run -d migrationDataSource.js",
+		"migration-down": "cd dist && npx typeorm migration:revert -d migrationDataSource.js",
 		"build-pre": "rimraf dist",
 		"build": "npm run build-pre && tsc --build"
 	},
