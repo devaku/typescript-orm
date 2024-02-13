@@ -4,10 +4,11 @@
 	"description": "",
 	"main": "src/index.ts",
 	"scripts": {
-		"dev": "nodemon dist/index.js",
+		"dev": "concurrently -n \"NODEMON,BUILDER\" -c \"yellow,blue\" -p \"[{name}]\" \"npm run dev-nodemon\" \"npm run dev-build\"",
+		"dev-nodemon": "nodemon dist/index.js",
 		"dev-build": "tsc --watch",
-		"prebuild": "rimraf dist",
-		"build": "npm run prebuild && tsc --build"
+		"build-pre": "rimraf dist",
+		"build": "npm run build-pre && tsc --build"
 	},
 	"author": "Alejo Kim Uy",
 	"license": "ISC",
